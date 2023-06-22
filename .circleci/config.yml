@@ -68,17 +68,10 @@ jobs:
 workflows:
   build-unity-project:
     jobs:
-      - build-android:
-          context: unity
-      - beta-android:
-          requires:
-            - build-android
-          context:
-            - mobile
       - export-ios:
-          context: unity
+          context: UnityTesuto
       - build-and-beta-ios:
           requires:
             - export-ios
           context:
-            - mobile
+            - UnityTesuto
